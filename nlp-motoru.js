@@ -135,3 +135,8 @@ function analyzeNoteText(text) {
 
   return { winner:winner, scores:scores, evidence:evidence.slice(0,5), structures:structures };
 }
+
+// HTML arayüzünün motoru internet üzerinden sorunsuz tanıyabilmesi için global hafızaya açıyoruz:
+window.THEMES = THEMES;
+window.cleanToken = cleanToken;
+window.analyzeNoteText = analyzeNoteText;

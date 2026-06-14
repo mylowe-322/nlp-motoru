@@ -72,26 +72,68 @@
 const THEMES = {
   tarih: { 
     emoji:"📜", bg:"#1c140c", border:"#f59e0b", accent:"#fbbf24", label:"Tarih",
-    keywords:["sümer","babil","akad","tablet","kil","uygarlık","antik","medeniyet","imparatorluk","arkeoloji","kral","roma","osmanlı","tarih","mitoloji"],
-    actors:["hammurabi","herodot","joan oates"],
-    subs: {
-        "Antik Mezopotamya": ["sümer", "babil", "akad", "hammurabi", "joan oates", "kil", "tablet"],
-        "Genel Tarih": ["roma", "osmanlı", "bizans"]
-    }
+    keywords:["tarih", "antik", "imparatorluk", "arkeoloji", "kral", "sümer", "babil", "osmanlı", "devrim", "savaş"],
+    actors:["hammurabi", "herodot", "sargon"],
+    subs: { "Antik Çağ": ["sümer", "babil", "antik"], "Yakın Tarih": ["osmanlı", "devrim"] }
   },
   felsefe: { 
     emoji:"🏛️", bg:"#141526", border:"#6366f1", accent:"#818cf8", label:"Felsefe",
-    keywords:["felsefe","düşünce","etik","ahlak","varoluş","nihilizm","akıl","bilgi","sorgulama","hakikat","gerçeklik"],
-    actors:["sokrates","platon","aristoteles","nietzsche","camus"],
-    subs: {
-        "Antik Yunan Felsefesi": ["sokrates", "platon", "aristoteles"],
-        "Varoluşçuluk": ["nietzsche", "camus", "varoluş", "nihilizm"]
-    }
+    keywords:["felsefe", "etik", "varoluş", "mantık", "düşünce", "hakikat", "metafizik", "ontoloji", "bilgi", "akıl"],
+    actors:["sokrates", "platon", "aristoteles", "nietzsche"],
+    subs: { "Antik Yunan": ["sokrates", "platon"], "Modern Felsefe": ["nietzsche", "varoluş"] }
+  },
+  sosyoloji: { 
+    emoji:"👥", bg:"#1a0f16", border:"#ec4899", accent:"#f472b6", label:"Sosyoloji",
+    keywords:["toplum", "sınıf", "kültür", "nüfus", "etkileşim", "yapı", "modernleşme", "kentleşme", "grup"],
+    actors:["durkheim", "weber", "marx"],
+    subs: { "Toplumsal Yapı": ["sınıf", "yapı"], "Kültür": ["kültür", "etkileşim"] }
+  },
+  psikoloji: { 
+    emoji:"🧠", bg:"#0b1a17", border:"#14b8a6", accent:"#2dd4bf", label:"Psikoloji",
+    keywords:["zihin", "davranış", "bilinç", "duygu", "terapi", "algı", "gelişim", "kişilik", "bilişsel"],
+    actors:["freud", "jung", "pavlov"],
+    subs: { "Klinik": ["terapi", "kişilik"], "Bilişsel": ["zihin", "algı"] }
+  },
+  siyaset: { 
+    emoji:"⚖️", bg:"#1a0c0c", border:"#ef4444", accent:"#f87171", label:"Siyaset",
+    keywords:["devlet", "hükümet", "politika", "yasa", "seçim", "diplomasi", "iktidar", "demokrasi", "ideoloji"],
+    actors:["machiavelli", "hobbes"],
+    subs: { "Uluslararası": ["diplomasi"], "İç Politika": ["seçim", "hükümet"] }
+  },
+  ekonomi: { 
+    emoji:"💹", bg:"#0a140d", border:"#10b981", accent:"#34d399", label:"Ekonomi",
+    keywords:["para", "piyasa", "finans", "borsa", "enflasyon", "üretim", "tüketim", "yatırım", "faiz"],
+    actors:["smith", "keynes"],
+    subs: { "Makro": ["enflasyon", "faiz"], "Finans": ["borsa", "para"] }
+  },
+  teknoloji: { 
+    emoji:"💻", bg:"#0a1219", border:"#0ea5e9", accent:"#38bdf8", label:"Teknoloji",
+    keywords:["yazılım", "kod", "algoritma", "yapay zeka", "robot", "veri", "dijital", "donanım", "bulut"],
+    actors:["turing", "jobs"],
+    subs: { "Yazılım": ["kod", "algoritma"], "AI": ["yapay zeka", "veri"] }
+  },
+  edebiyat: { 
+    emoji:"✍️", bg:"#150e1a", border:"#a855f7", accent:"#c084fc", label:"Edebiyat",
+    keywords:["şiir", "roman", "yazar", "şair", "metin", "kurgu", "dil", "eleştiri", "roman"],
+    actors:["kafka", "dostoyevski"],
+    subs: { "Roman": ["roman", "kurgu"], "Şiir": ["şiir", "şair"] }
+  },
+  hukuk: { 
+    emoji:"📜", bg:"#14100c", border:"#f97316", accent:"#fb923c", label:"Hukuk",
+    keywords:["adalet", "mahkeme", "suç", "ceza", "avukat", "hak", "anayasa", "yargı", "mevzuat"],
+    actors:["kelsen", "montesquieu"],
+    subs: { "Ceza": ["suç", "ceza"], "Anayasa": ["anayasa", "hak"] }
+  },
+  tip: { 
+    emoji:"⚕️", bg:"#1a0b12", border:"#e11d48", accent:"#fb7185", label:"Tıp & Sağlık",
+    keywords:["sağlık", "hastalık", "tedavi", "anatomi", "doktor", "biyoloji", "ilaç", "klinik", "cerrahi"],
+    actors:["hipokrat", "avicenna"],
+    subs: { "Klinik": ["tedavi", "klinik"], "Biyoloji": ["anatomi", "biyoloji"] }
   }
 };
 
 function analyzeText(text) {
-  let scores = { tarih:0, felsefe:0 }; 
+  let scores = { tarih:0, felsefe:0, sosyoloji:0, psikoloji:0, siyaset:0, ekonomi:0, teknoloji:0, edebiyat:0, hukuk:0, tip:0 }; 
   let evidence = [];
   let lowerText = text.toLowerCase();
   
